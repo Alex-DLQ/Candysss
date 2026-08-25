@@ -24,34 +24,29 @@ for (let i = 0; i < 15; i++) createFloatingHeart();
 
 /* ===== 2. VARIABLES ===== */
 let yesScale = 1;
-const MAX_SCALE = 5; // A los 5 clicks/huidas ya es gigante
+const MAX_SCALE = 5;
 
 /* ===== 3. BOTÓN NO: HUYE ===== */
 function moveNoButton() {
-    // Activar modo running (absolute + z-index alto)
     btnNo.classList.add('running');
     
     const rect = container.getBoundingClientRect();
     const noW = btnNo.offsetWidth;
     const noH = btnNo.offsetHeight;
     
-    // Márgenes de seguridad para que no se salga
     const padding = 10;
     const maxX = rect.width - noW - padding;
     const maxY = rect.height - noH - padding;
     
-    // Posición aleatoria DENTRO del contenedor
     const x = Math.random() * Math.max(padding, maxX);
     const y = Math.random() * Math.max(padding, maxY);
     
     btnNo.style.left = x + 'px';
     btnNo.style.top = y + 'px';
     
-    // El Sí crece cada vez que el No huye
     growYesButton(0.5);
 }
 
-// El No huye al acercar el mouse, tocar, o intentar click
 btnNo.addEventListener('mouseenter', moveNoButton);
 btnNo.addEventListener('touchstart', (e) => { e.preventDefault(); moveNoButton(); }, {passive: false});
 btnNo.addEventListener('click', (e) => { e.preventDefault(); moveNoButton(); });
@@ -60,45 +55,29 @@ btnNo.addEventListener('click', (e) => { e.preventDefault(); moveNoButton(); });
 function growYesButton(amount = 0.6) {
     yesScale += amount;
     btnYes.style.transform = `scale(${yesScale})`;
-    
-    // Cuando es gigante, pasa a la pantalla de amor
-    if (yesScale >= MAX_SCALE) {
-        showLoveScreen();
-    }
+    if (yesScale >= MAX_SCALE) showLoveScreen();
 }
 
-// Click en Sí: si ya creció bastante (>2.5), pasa directo
 btnYes.addEventListener('click', () => {
-    if (yesScale > 2.5) {
-        showLoveScreen();
-    } else {
-        growYesButton(1.0);
-    }
+    if (yesScale > 2.5) showLoveScreen();
+    else growYesButton(1.0);
 });
 
 /* ===== 5. MOSTRAR PANTALLA DE AMOR ===== */
 function showLoveScreen() {
     screenQuestion.classList.remove('active');
     screenLove.classList.add('active');
-    
-    // Iniciar fuegos artificiales
     setTimeout(initFireworks, 100);
-    
-    // Cargar música AHORA (después de interacción del usuario, el navegador permite autoplay)
     loadMusic();
 }
 
-/* ===== 6. MÚSICA - CORREGIDA ===== */
+/* ===== 6. MÚSICA ===== */
 function loadMusic() {
-    // Canserbero - Stupid Love Story (loop + autoplay)
     const videoId = 'DGjE4P4qEp0';
     iframeMusic.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
-    
-    // Ocultar botón de play si todo va bien
     btnPlayMusic.style.display = 'none';
 }
 
-// Fallback: si el navegador bloquea el iframe, el usuario puede apretar el botón
 btnPlayMusic.addEventListener('click', () => {
     loadMusic();
     btnPlayMusic.style.display = 'none';
@@ -175,18 +154,15 @@ function initFireworks() {
     }
     animate();
 
-    // Fuegos iniciales
     setTimeout(() => createFirework(canvas.width*0.25, canvas.height*0.35), 400);
     setTimeout(() => createFirework(canvas.width*0.75, canvas.height*0.3), 700);
     setTimeout(() => createFirework(canvas.width*0.5, canvas.height*0.25), 1100);
     setTimeout(() => createFirework(canvas.width*0.35, canvas.height*0.4), 1500);
     
-    // Fuegos continuos
     setInterval(() => {
         createFirework(Math.random()*canvas.width, Math.random()*(canvas.height*0.5)+50);
     }, 1000);
     
-    // Fuegos al tocar/clickar la pantalla
     canvas.addEventListener('click', (e) => createFirework(e.clientX, e.clientY));
     canvas.addEventListener('touchstart', (e) => {
         const t = e.touches[0];

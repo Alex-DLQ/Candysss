@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Para Mi Amor 💜</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -19,7 +19,7 @@
             <button id="btn-no" class="btn btn-no">No 💔</button>
         </div>
         
-        <p class="hint">¿Lo sabes verdad?🥺 </p>
+        <p class="hint">Sabía que dirías que sí jsjsjsjs</p>
     </div>
 
     <!-- PANTALLA 2 -->
@@ -29,24 +29,25 @@
         <div class="love-content">
             <div class="photo-frame">
                 <!-- REEMPLAZA ESTA URL CON TU FOTO REAL -->
-                <img src="img/WhatsApp Image 2026-08-24 at 21.51.02.jpeg" alt="Nosotros" id="couple-photo">
+                <img src="img/WhatsApp Image 2026-08-24 at 21.51.02.jpeg" alt="Nosotros" id="couple-photo" onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
+                <div class="photo-placeholder">📷 Nuestra Foto</div>
             </div>
             
             <div class="love-message">
-                <h2>Sabía que dirías que sí jsjsjsjs</h2>
-                <p>
+                <h2>Sabía que dirías que sí...</h2>
+                <div class="love-text">
                     Sé que muchas veces te hago sentir mal y que pormi culpa ya no confias en mí, pero 
                     solo quiero que sepas que te amo mucho 🥺❤️ que te extraño mucho, no sabes cuando extraño dormir junto a ti
                     estar cerca de ti, escuchar tu corazón latir, sentir tu calor, sentirme vivo otra vez 🥺❤️.<br>
                     En este mundo de guerra solo contigo encuentro la paz que tanto anhelo eres mi <strong>const</strong> favorita.<br>
                     Te amo más de lo que te puedas imaginar, espero estar junto a ti, hoy mañana y siempre.
                     Y te lo vuelvo a repetir sé que hice mal pero ahora quiero estar bien contigo, solo contigo no quiero a nadie mas que no seas tú 🥺🥺❤️❤️.<br><br>
-                    <span class="signature">— Con todo mi corazón para mi niña hermosa 🥺❤️</span>
-                </p>
+                    <span class="signature">— Con todo mi corazón para mi niña hermosa 🥺❤️</span>      
+                </div>
             </div>
         </div>
 
-        <!-- MÚSICA: empieza vacío, se carga con JS tras el click -->
+        <!-- MÚSICA -->
         <div class="music-player" id="music-box">
             <iframe id="youtube-music" width="0" height="0" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <button id="btn-play-music" class="btn-music">▶ Reproducir música</button>
