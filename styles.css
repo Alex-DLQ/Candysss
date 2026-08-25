@@ -160,18 +160,26 @@ body {
 }
 
 .photo-frame {
-    width: 240px;
-    height: 240px;
+    width: 200px;        /* Ancho del contenedor final (vertical) */
+    height: 300px;       /* Alto del contenedor final (vertical) */
     margin: 0 auto 25px;
     border-radius: 20px;
     overflow: hidden;
     border: 4px solid rgba(255, 107, 157, 0.5);
     box-shadow: 0 0 40px rgba(255, 107, 157, 0.4);
     animation: fadeInDown 1.5s ease;
+    position: relative;  /* Ayuda a controlar la posición de la imagen interna */
 }
+
 .photo-frame img {
-    width: 100%; height: 100%;
+    width: 100%; 
+    height: 100%;
     object-fit: cover;
+    
+    /* 🔄 ESTO VOLTEA LA IMAGEN 90 GRADOS */
+    transform: rotate(-90deg); 
+    
+    /* Si al voltearla se ve al revés (de cabeza), cambia 90deg por 270deg o -90deg */
 }
 
 .love-message {
