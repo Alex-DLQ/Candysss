@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor 💜</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- PANTALLA 1 -->
+    <div id="screen-question" class="screen active">
+        <div class="hearts-bg"></div>
+        <h1 class="question-text">¿Sabes que te amo mucho?</h1>
+        
+        <div class="buttons-container" id="btn-container">
+            <button id="btn-yes" class="btn btn-yes">Sí 💕</button>
+            <button id="btn-no" class="btn btn-no">No 💔</button>
+        </div>
+        
+        <p class="hint">* Intenta apretar el "No" si te atreves... 😏</p>
+    </div>
+
+    <!-- PANTALLA 2 -->
+    <div id="screen-love" class="screen">
+        <canvas id="fireworks"></canvas>
+        
+        <div class="love-content">
+            <div class="photo-frame">
+                <!-- REEMPLAZA ESTA URL CON TU FOTO REAL -->
+                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&h=500&fit=crop" alt="Nosotros" id="couple-photo">
+            </div>
+            
+            <div class="love-message">
+                <h2>Sabía que dirías que sí...</h2>
+                <p>
+                    Eres la razón por la que mi código compila con sentido.<br>
+                    En un mundo de variables inestables, tú eres mi <strong>const</strong> favorita.<br>
+                    Te amo más que a todos los commits de mi vida juntos.<br><br>
+                    <span class="signature">— Con todo mi corazón 💻❤️</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- MÚSICA: empieza vacío, se carga con JS tras el click -->
+        <div class="music-player" id="music-box">
+            <iframe id="youtube-music" width="0" height="0" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <button id="btn-play-music" class="btn-music">▶ Reproducir música</button>
+            <p class="music-label">🎵 Canserbero - Stupid Love Story</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
