@@ -444,7 +444,6 @@ html, body {
   text-align: center;
   pointer-events: none;
   z-index: 10;
-  white-space: nowrap;
 }
 
 .galaxia-titulo h1 {
@@ -453,15 +452,6 @@ html, body {
   letter-spacing: 4px;
   font-weight: 400;
   text-shadow: 0 0 15px #e91e8c, 0 0 30px #ff5cc8;
-  color: white;
-}
-
-.galaxia-titulo p {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.82rem;
-  opacity: 0.55;
-  margin-top: 5px;
-  letter-spacing: 0.05em;
   color: white;
 }
 
@@ -491,10 +481,57 @@ html, body {
 
 
 /* ════════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — pantallas pequeñas
 ════════════════════════════════════════════ */
-@media (max-width: 480px) {
-  .titulo-pregunta { font-size: 1.8rem; }
-  #zona-botones    { height: 160px; }
-  .amor-parrafo    { font-size: 0.9rem; }
+@media (max-width: 400px) {
+  .titulo-pregunta {
+    font-size: 1.5rem;
+  }
+  #zona-botones {
+    height: 150px;
+    width: 95vw;
+  }
+  .pregunta-contenido {
+    gap: 0.8rem;
+  }
+  #btn-si {
+    font-size: 1rem;
+    padding: 0.7em 1.6em;
+  }
+  #btn-no {
+    font-size: 0.85rem;
+    padding: 0.55em 1.2em;
+  }
+  .amor-parrafo {
+    font-size: 0.82rem;
+    line-height: 1.75;
+  }
+  .zoom-controles {
+    bottom: 4.5rem;
+  }
+}
+
+/* Pantallas muy altas (móvil portrait) */
+@media (max-height: 700px) {
+  .foto-marco {
+    width: min(160px, 42vw);
+  }
+  .pregunta-contenido {
+    gap: 0.7rem;
+  }
+  #zona-botones {
+    height: 120px;
+    margin-top: 0.2rem;
+  }
+}
+
+/* Tablets y desktop */
+@media (min-width: 768px) {
+  .amor-parrafo {
+    font-size: 1.05rem;
+  }
+  .zoom-btn {
+    width: 40px;
+    height: 40px;
+  }
 }
