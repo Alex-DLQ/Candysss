@@ -1,60 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Para Mi Amor 💜</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Para Ti</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <!-- PANTALLA 1 -->
-    <div id="screen-question" class="screen active">
-        <div class="hearts-bg"></div>
-        <h1 class="question-text">¿Sabes que te amo mucho?</h1>
-        
-        <div class="buttons-container" id="btn-container">
-            <button id="btn-yes" class="btn btn-yes">Sí 💕</button>
-            <button id="btn-no" class="btn btn-no">No 💔</button>
-        </div>
-        
-        <p class="hint">Sabía que dirías que sí jsjsjsjs</p>
+  <!-- ══════════════════════════════════════════
+       PANTALLA 1: Pregunta
+  ══════════════════════════════════════════ -->
+  <section id="pantalla-pregunta" class="pantalla activa">
+    <div class="estrellas" id="estrellas-pregunta"></div>
+    <div class="corazon-fondo"></div>
+
+    <div class="pregunta-contenido">
+      <p class="subtitulo">una pregunta muy importante</p>
+      <h1 class="titulo-pregunta">¿Sabes lo mucho<br>que te amo?</h1>
+
+      <div id="zona-botones">
+        <button id="btn-si" onclick="responderSi()">Si</button>
+        <button id="btn-no" onclick="responderNo()">No</button>
+      </div>
     </div>
 
-    <!-- PANTALLA 2 -->
-    <div id="screen-love" class="screen">
-        <canvas id="fireworks"></canvas>
-        
-        <div class="love-content">
-            <div class="photo-frame">
-                <!-- REEMPLAZA ESTA URL CON TU FOTO REAL -->
-                <img src="img/WhatsApp Image 2026-08-24 at 21.51.02.jpeg" alt="Nosotros" id="couple-photo" onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
-                <div class="photo-placeholder">📷 Nuestra Foto</div>
-            </div>
-            
-            <div class="love-message">
-                <h2>Sabía que dirías que sí...</h2>
-                <div class="love-text">
-                    Sé que muchas veces te hago sentir mal y que pormi culpa ya no confias en mí, pero 
-                    solo quiero que sepas que te amo mucho 🥺❤️ que te extraño mucho, no sabes cuando extraño dormir junto a ti
-                    estar cerca de ti, escuchar tu corazón latir, sentir tu calor, sentirme vivo otra vez 🥺❤️.<br>
-                    En este mundo de guerra solo contigo encuentro la paz que tanto anhelo eres mi <strong>const</strong> favorita.<br>
-                    Te amo más de lo que te puedas imaginar, espero estar junto a ti, hoy mañana y siempre.
-                    Y te lo vuelvo a repetir sé que hice mal pero ahora quiero estar bien contigo, solo contigo no quiero a nadie mas que no seas tú 🥺🥺❤️❤️.<br><br>
-                    <span class="signature">— Con todo mi corazón para mi niña hermosa 🥺❤️</span>      
-                </div>
-            </div>
-        </div>
+    <div class="corazones-flotantes" id="corazones-flotantes"></div>
+  </section>
 
-        <!-- MÚSICA -->
-        <div class="music-player" id="music-box">
-            <iframe id="youtube-music" width="0" height="0" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <button id="btn-play-music" class="btn-music">▶ Reproducir música</button>
-            <p class="music-label">🎵 Canserbero - Stupid Love Story</p>
-        </div>
+
+  <!-- ══════════════════════════════════════════
+       PANTALLA 2: Mensaje de amor
+  ══════════════════════════════════════════ -->
+  <section id="pantalla-amor" class="pantalla">
+    <div class="estrellas" id="estrellas-amor"></div>
+
+    <div class="amor-contenido">
+      <div class="foto-marco">
+        <img id="foto-amor" src="/primero/img/fotp.jpeg" alt="Nuestra foto" />
+        <div class="marco-deco"></div>
+      </div>
+
+      <div class="texto-amor">
+        <p class="linea-decorativa">
+          <svg width="120" height="8" viewBox="0 0 120 8">
+            <path d="M0 4 Q30 0 60 4 Q90 8 120 4" stroke="#f06292" stroke-width="2" fill="none"/>
+          </svg>
+        </p>
+        <p class="amor-parrafo">
+          Desde el primer momento en que apareciste en mi vida,<br>
+          el mundo empezó a tener un color diferente.<br><br>
+          Cada día a tu lado es un regalo que atesoro con todo mi ser.<br>
+          Tu sonrisa es lo más bonito que mis ojos han conocido,<br>
+          y tu voz, la melodía que calma cualquier tormenta.<br><br>
+          No existen palabras suficientes para decirte<br>
+          cuánto llenas cada rincón de mi corazón.<br>
+          Eres mi lugar favorito en el universo entero.
+        </p>
+        <p class="firma">— siempre tuyo &hearts;</p>
+      </div>
+
+      <button class="btn-espacio" onclick="irAlEspacio()">
+        <svg class="icono-cohete" viewBox="0 0 24 24" width="20" height="20">
+          <path d="M12 2C12 2 7 7 7 13c0 2.8 1.2 5 3 6.5V21h4v-1.5C15.8 18 17 15.8 17 13c0-6-5-11-5-11z" fill="currentColor"/>
+          <path d="M9 21h6v1H9z" fill="currentColor"/>
+          <circle cx="12" cy="13" r="2" fill="white"/>
+        </svg>
+        vamos al espacio
+      </button>
     </div>
 
-    <script src="script.js"></script>
+    <audio id="musica-amor" loop>
+      <source src="/primero/corte.MP3" type="audio/mpeg" />
+    </audio>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       PANTALLA 3: Galaxia Three.js
+  ══════════════════════════════════════════ -->
+  <section id="pantalla-galaxia" class="pantalla">
+
+    <!-- Canvas Three.js -->
+    <canvas id="scene"></canvas>
+
+    <!-- Objetos flotantes holográficos -->
+    <div id="holo-objects"></div>
+
+    <!-- Título galaxia -->
+    <div class="galaxia-titulo">
+      <h1>MI AMOR POR TI ES TAN GRANDE COMO ESTA GALAXIA <br>
+        NO TE IMAGINAS LO MUCHO QUE TE AMO CANDY ❤️
+      </h1>
+      <p>Arrastra con el mouse o con tu dedo</p>
+    </div>
+
+    <!-- Botón volver -->
+    <button class="btn-volver" onclick="volverAlAmor()">volver</button>
+  </section>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
